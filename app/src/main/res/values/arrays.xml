@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_char_type_labels">
+        <item>@string/settings_char_type_all_label</item>
+        <item>@string/settings_char_type_both_label</item>
+        <item>@string/settings_char_type_hero_label</item>
+        <item>@string/settings_char_type_villain_label</item>
+    </string-array>
+
+    <string-array name="settings_char_type_values">
+        <item>@string/settings_char_type_all_value</item>
+        <item>@string/settings_char_type_both_value</item>
+        <item>@string/settings_char_type_hero_value</item>
+        <item>@string/settings_char_type_villain_value</item>
+    </string-array>
+</resources>

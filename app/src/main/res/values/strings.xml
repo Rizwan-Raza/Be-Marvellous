@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Marvel Characters</string>
+    <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
+    <string name="no_characters">No Characters found.</string>
+    <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
+    <string name="no_internet_connection">No internet connection.</string>
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">Characters Settings</string>
+    <!-- Strings For Minimum Magnitude Preference [CHAR LIMIT=30] -->
+    <string name="settings_limit_label">Number of Characters</string>
+    <string name="settings_limit_key" translatable="false">limit</string>
+    <string name="settings_limit_default" translatable="false">10</string>
+
+    <!-- Strings For Character Type Preference [CHAR LIMIT=30] -->
+    <string name="settings_char_type_label">Character Type</string>
+    <string name="settings_char_type_key" translatable="false">char_type</string>
+    <string name="settings_char_type_default" translatable="false">@string/settings_char_type_all_value</string>
+
+    <!-- Label for character type hero option [CHAR LIMIT=20] -->
+    <string name="settings_char_type_hero_label">Hero</string>
+    <string name="settings_char_type_hero_value" translatable="false">Hero</string>
+
+    <!-- Label for character type hero, villain option [CHAR LIMIT=20] -->
+    <string name="settings_char_type_both_label">Hero,Villain</string>
+    <string name="settings_char_type_both_value" translatable="false">Hero and Villain</string>
+
+    <!-- Label for character type villain option [CHAR LIMIT=20] -->
+    <string name="settings_char_type_villain_label">Villain</string>
+    <string name="settings_char_type_villain_value" translatable="false">Villain</string>
+
+    <!-- Label for character type villain option [CHAR LIMIT=20] -->
+    <string name="settings_char_type_all_label">All</string>
+    <string name="settings_char_type_all_value" translatable="false">All</string>
+
+    <string name="image_icon">Image Icon</string>
+</resources>

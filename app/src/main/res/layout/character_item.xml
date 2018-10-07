@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ch_icon"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@string/image_icon"
+        android:src="@drawable/image_not_found" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ch_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorCharacterTitle"
+            android:textSize="16sp"
+            tools:text="Hello and Welcome" />
+
+        <TextView
+            android:id="@+id/ch_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorCharacterTitle"
+            android:textSize="16sp"
+            tools:text="30km S of" />
+
+        <TextView
+            android:id="@+id/ch_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/textColorCharacterDetails"
+            android:textSize="12sp"
+            tools:text="Long placeholder location that should wrap to more than 2 lines of textLong placeholder location that should wrap to more than 2 lines of textLong placeholder location that should wrap to more than 2 lines of text" />
+    </LinearLayout>
+</LinearLayout>
+
