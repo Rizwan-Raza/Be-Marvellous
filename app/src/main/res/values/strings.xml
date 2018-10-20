@@ -4,29 +4,43 @@
     <string name="app_name">Be Marvellous</string>
     <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
     <string name="no_characters">No Characters found.</string>
+    <string name="no_groups">No Groups found.</string>
+    <string name="no_items">No Items found.</string>
+    <string name="no_movies">No Movies found.</string>
+    <string name="no_tv_shows">No TV Shows found.</string>
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No Internet Connection.</string>
     <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
     <string name="settings_menu_item">Settings</string>
     <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
-    <string name="settings_title">Characters Settings</string>
-    <!-- Strings For Minimum Magnitude Preference [CHAR LIMIT=30] -->
-    <string name="settings_limit_label">Number of Characters</string>
+    <string name="settings_title">Preferences Settings</string>
+    <string name="search">Search</string>
+    <string name="char_title">Characters</string>
+    <string name="group_title">Groups</string>
+    <string name="item_title">Items</string>
+    <string name="mov_title">Movies</string>
+    <string name="tv_title">TV Shows</string>
+
+    <!-- Strings For Limits [CHAR LIMIT=30] -->
+    <string name="settings_limit_label">Results Limit</string>
     <string name="settings_limit_key" translatable="false">limit</string>
     <string name="settings_limit_default" translatable="false">10</string>
+
+    <!-- Strings For Limits [CHAR LIMIT=30] -->
+    <string name="settings_limit_mov_label">Number of Movies</string>
 
     <!-- Strings For Character Type Preference [CHAR LIMIT=30] -->
     <string name="settings_char_type_label">Character Type</string>
     <string name="settings_char_type_key" translatable="false">char_type</string>
-    <string name="settings_char_type_default" translatable="false">@string/settings_char_type_all_value</string>
+    <string name="settings_char_type_default" translatable="false">@string/settings_char_type_all_label</string>
 
     <!-- Label for character type hero option [CHAR LIMIT=20] -->
     <string name="settings_char_type_hero_label">Hero</string>
     <string name="settings_char_type_hero_value" translatable="false">Hero</string>
 
     <!-- Label for character type hero, villain option [CHAR LIMIT=20] -->
-    <string name="settings_char_type_both_label">Hero,Villain</string>
-    <string name="settings_char_type_both_value" translatable="false">Hero and Villain</string>
+    <string name="settings_char_type_both_label">Hero and Villain</string>
+    <string name="settings_char_type_both_value" translatable="false">Hero,Villain</string>
 
     <!-- Label for character type villain option [CHAR LIMIT=20] -->
     <string name="settings_char_type_villain_label">Villain</string>
@@ -34,7 +48,39 @@
 
     <!-- Label for character type villain option [CHAR LIMIT=20] -->
     <string name="settings_char_type_all_label">All</string>
-    <string name="settings_char_type_all_value" translatable="false">All</string>
+
+    <!-- Strings For Character Type Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_label">Order by</string>
+    <string name="settings_order_key">order_by</string>
+    <string name="settings_order_field_key" translatable="false">sortField</string>
+    <string name="settings_order_dir_key" translatable="false">sortDirection</string>
+    <string name="settings_order_default" translatable="false">@string/settings_order_date_desc_label</string>
+
+    <!-- Label for order date option [CHAR LIMIT=20] -->
+    <string name="settings_order_date_desc_label">Latest</string>
+    <string name="settings_order_date_asc_label">Oldest</string>
+    <string name="settings_order_date_value" translatable="false">release_date</string>
+
+    <!-- Label for order by alphabetical option [CHAR LIMIT=20] -->
+    <string name="settings_order_alp_asc_label" translatable="false">A-Z</string>
+    <string name="settings_order_alp_desc_label">Z-A</string>
+    <string name="settings_alp_value" translatable="false">title</string>
+
+
+    <string name="settings_asc_value" translatable="false">asc</string>
+    <string name="settings_desc_value" translatable="false">desc</string>
+
+    <!-- Label for character type villain option [CHAR LIMIT=20] -->
+
+    <!-- Label for appearance option [CHAR LIMIT=20] -->
+    <string name="settings_appearance_label">Appeared in</string>
+    <string name="settings_appearance_key">char_movie</string>
 
     <string name="image_icon">Image Icon</string>
+
+    <!--<string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+    <string name="admob_app_id">ca-app-pub-1522154052992149~6721836854</string>
+
+    <!--<string name="ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>-->
+    <string name="ad_unit_id">ca-app-pub-1522154052992149/5238484353</string>
 </resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_char"
+        android:enabled="true"
+        android:icon="@drawable/ic_flash_on_white_24dp"
+        android:title="@string/char_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_group"
+        android:enabled="true"
+        android:icon="@drawable/ic_group_white_24dp"
+        android:title="@string/group_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_stars_white_24dp"
+        android:title="@string/item_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_movie"
+        android:enabled="true"
+        android:icon="@drawable/ic_movie_white_24dp"
+        android:title="@string/mov_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_tv"
+        android:enabled="true"
+        android:icon="@drawable/ic_tv_white_24dp"
+        android:title="@string/tv_title"
+        app:showAsAction="ifRoom" />
+</menu>

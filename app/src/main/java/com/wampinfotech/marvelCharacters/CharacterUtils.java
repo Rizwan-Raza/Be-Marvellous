@@ -1,5 +1,6 @@
 package com.wampinfotech.marvelCharacters;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -20,12 +21,12 @@ import java.util.List;
 /**
  * Helper methods related to requesting and receiving earthquake data from USGS.
  */
-public final class CharacterUtils {
+final class CharacterUtils {
 
     /**
      * Tag for the log messages
      */
-    public static final String LOG_TAG = CharacterUtils.class.getSimpleName();
+    private static final String LOG_TAG = CharacterUtils.class.getSimpleName();
 
     /**
      * Create a private constructor because no one should ever create a {@link CharacterUtils} object.
@@ -39,7 +40,7 @@ public final class CharacterUtils {
      * Return a list of {@link Characters} objects that has been built up from
      * parsing a JSON response.
      */
-    public static List<Characters> extractCharacters(URL url) {
+    static List<Characters> extractCharacters(Context context, URL url) {
 //        Log.e(LOG_TAG, "Extracting Characters - extractCharacters()");
 
         // Perform HTTP request to the URL and receive a JSON response back
@@ -48,6 +49,39 @@ public final class CharacterUtils {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error closing input stream", e);
+        }
+
+        if (jsonResponse == null || jsonResponse.isEmpty()) {
+            String type = "character";
+            if (url.getQuery().contains("group")) {
+                type = "group";
+            } else if (url.getQuery().contains("item")) {
+                type = "item";
+            } else if (url.getQuery().contains("movie")) {
+                type = "movie";
+            } else if (url.getQuery().contains("tv")) {
+                type = "tv";
+            }
+            Log.e(LOG_TAG, type.toUpperCase() + " Cache Retrieved");
+            jsonResponse = CacheHelper.retrieve(context, type);
+        } else {
+            // saving result in cache
+            if (url.getQuery().contains("character")) {
+                CacheHelper.save(context, "character", jsonResponse);
+                Log.e(LOG_TAG, "Character Cache Added");
+            } else if (url.getQuery().contains("group")) {
+                CacheHelper.save(context, "group", jsonResponse);
+                Log.e(LOG_TAG, "Group Cache Added");
+            } else if (url.getQuery().contains("item")) {
+                CacheHelper.save(context, "item", jsonResponse);
+                Log.e(LOG_TAG, "Item Cache Added");
+            } else if (url.getQuery().contains("movie")) {
+                CacheHelper.save(context, "movie", jsonResponse);
+                Log.e(LOG_TAG, "Movie Cache Added");
+            } else if (url.getQuery().contains("tv")) {
+                CacheHelper.save(context, "tv", jsonResponse);
+                Log.e(LOG_TAG, "TV Cache Added");
+            }
         }
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
@@ -115,7 +149,7 @@ public final class CharacterUtils {
     }
 
     /**
-     * Return an {@link Event} object by parsing out information
+     * Return an {@link List} object by parsing out information
      * about the first earthquake from the input earthquakeJSON string.
      */
     private static List<Characters> extractCharactersFromJson(String charsJSON) {

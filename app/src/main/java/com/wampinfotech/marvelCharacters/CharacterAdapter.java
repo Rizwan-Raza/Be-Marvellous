@@ -8,18 +8,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterAdapter extends ArrayAdapter<Characters> {
+public class CharacterAdapter extends ArrayAdapter<Characters> implements Filterable {
 
-    public CharacterAdapter(Context context, List<Characters> characters) {
+    private ValueFilter valueFilter;
+    private List<Characters> mStringFilterList;
+    private List<Characters> arrayList;
+
+    CharacterAdapter(Context context, List<Characters> characters) {
         super(context, 0, characters);
-
+        arrayList = characters;
+        mStringFilterList = characters;
     }
 
     @NonNull
@@ -35,30 +42,29 @@ public class CharacterAdapter extends ArrayAdapter<Characters> {
             return listItemView;
         }
 
-        TextView nameView = listItemView.findViewById(R.id.ch_name);
+        final TextView nameView = listItemView.findViewById(R.id.ch_name);
         nameView.setText(currentCharacter.getName());
 
-        TextView descView = listItemView.findViewById(R.id.ch_desc);
-        String desc = currentCharacter.getDesc();
+//        TextView descView = listItemView.findViewById(R.id.ch_desc);
+//        String desc = currentCharacter.getDesc();
+//
+//        if (desc == null || TextUtils.isEmpty(desc) || desc.equalsIgnoreCase("null")) {
+//            descView.setVisibility(View.GONE);
+//        } else {
+//            descView.setText(desc);
+//            descView.setVisibility(View.VISIBLE);
+//        }
 
-        if (desc == null || TextUtils.isEmpty(desc) || desc.equalsIgnoreCase("null")) {
-            descView.setVisibility(View.GONE);
-        } else {
-            descView.setText(desc);
-            descView.setVisibility(View.VISIBLE);
-        }
-
-        TextView textView = listItemView.findViewById(R.id.ch_secondary);
+        final TextView textView = listItemView.findViewById(R.id.ch_secondary);
         String title = currentCharacter.getTitle();
 
         if (title == null || TextUtils.isEmpty(title) || title.equalsIgnoreCase("null")) {
-            textView.setVisibility(View.GONE);
+            textView.setText(currentCharacter.getName());
         } else {
             textView.setText(title);
-            textView.setVisibility(View.VISIBLE);
         }
 
-        ImageView imageView = listItemView.findViewById(R.id.ch_icon);
+        final ImageView imageView = listItemView.findViewById(R.id.ch_icon);
 
         // https://terrigen-cdn-dev.marvel.com/content/prod/1x/
         String filename = currentCharacter.getImage();
@@ -98,6 +104,22 @@ public class CharacterAdapter extends ArrayAdapter<Characters> {
         return listItemView;
     }
 
+
+    @Override
+    public int getCount() {
+        return arrayList.size();
+    }
+
+    @Override
+    public Characters getItem(int position) {
+        return arrayList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
 //    /**
 //     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
 //     */
@@ -113,4 +135,47 @@ public class CharacterAdapter extends ArrayAdapter<Characters> {
 //        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.ENGLISH);
 //        return timeFormat.format(dateObject);
 //    }
+
+    @NonNull
+    @Override
+    public android.widget.Filter getFilter() {
+        if (valueFilter == null) {
+            valueFilter = new CharacterAdapter.ValueFilter();
+        }
+        return valueFilter;
+    }
+
+    private class ValueFilter extends android.widget.Filter {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+
+            if (constraint != null && constraint.length() > 0) {
+                ArrayList<Characters> filterList = new ArrayList<>();
+                for (Characters item : mStringFilterList) {
+                    if (item.getTitle().toUpperCase().contains(constraint.toString().toUpperCase())
+                            || item.getName().toUpperCase().contains(constraint.toString().toUpperCase())) {
+//                        Log.e("MARVEL", "ITEM: " + item.getTitle());
+                        filterList.add(item);
+                    }
+                }
+//                Log.e("_____", mStringFilterList.size() + "__________________________________________________" + filterList.size());
+                results.count = filterList.size();
+                results.values = filterList;
+            } else {
+//                Log.e("_____", mStringFilterList.size() + "Original Result");
+                results.count = mStringFilterList.size();
+                results.values = mStringFilterList;
+            }
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint,
+                                      FilterResults results) {
+            arrayList = (List<Characters>) results.values;
+            notifyDataSetChanged();
+        }
+    }
 }

@@ -8,9 +8,42 @@
     </string-array>
 
     <string-array name="settings_char_type_values">
-        <item>@string/settings_char_type_all_value</item>
+        <item>@string/settings_char_type_all_label</item>
         <item>@string/settings_char_type_both_value</item>
         <item>@string/settings_char_type_hero_value</item>
         <item>@string/settings_char_type_villain_value</item>
+    </string-array>
+
+    <string-array name="settings_order_labels">
+        <item>@string/settings_order_date_desc_label</item>
+        <item>@string/settings_order_date_asc_label</item>
+        <item>@string/settings_order_alp_asc_label</item>
+        <item>@string/settings_order_alp_desc_label</item>
+    </string-array>
+
+    <string-array name="setting_appearanace_def_values" />
+
+    <string-array name="setting_appearanace_labels">
+        <item>Ant-Man</item>
+        <item>Ant-Man and The Wasp</item>
+        <item>Avengers: Age of Ultron</item>
+        <item>Avengers: Infinity War</item>
+        <item>Black Panther</item>
+        <item>Captain America: Civil War</item>
+        <item>Captain America: The First Avenger</item>
+        <item>Captain America: The Winter Soldier</item>
+        <item>Captain Marvel</item>
+        <item>Doctor Strange</item>
+        <item>Guardians of the Galaxy</item>
+        <item>Guardians of the Galaxy Vol. 2</item>
+        <item>Iron Man</item>
+        <item>Iron Man 2</item>
+        <item>Iron Man 3</item>
+        <item>Spider-Man: Homecoming</item>
+        <item>The Avengers</item>
+        <item>The Incredible Hulk</item>
+        <item>Thor</item>
+        <item>Thor: Ragnarok</item>
+        <item>Thor: The Dark World</item>
     </string-array>
 </resources>

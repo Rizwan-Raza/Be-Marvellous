@@ -18,6 +18,7 @@ public class CharacterLoader extends AsyncTaskLoader<List<Characters>> {
      * Query URL
      */
     private URL _Url;
+    private Context _Context;
 
     /**
      * Constructs a new {@link CharacterLoader}.
@@ -27,6 +28,8 @@ public class CharacterLoader extends AsyncTaskLoader<List<Characters>> {
      */
     CharacterLoader(Context context, String url) {
         super(context);
+        _Context = context;
+//        Toast.makeText(context, "URL: " + url, Toast.LENGTH_SHORT).show();
         try {
             _Url = new URL(url);
         } catch (MalformedURLException e) {
@@ -50,6 +53,6 @@ public class CharacterLoader extends AsyncTaskLoader<List<Characters>> {
         if (_Url == null) {
             return null;
         }
-        return CharacterUtils.extractCharacters(_Url);
+        return CharacterUtils.extractCharacters(_Context, _Url);
     }
 }
